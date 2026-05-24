@@ -210,14 +210,22 @@ Description: Evolv EScribe Suite Stable Edition
 EOF
 
 # --- Post-Installation Management Hook ---
-cat << EOF > "$BUILD_DIR/DEBIAN/postinst"
+cat << 'EOF' > "$BUILD_DIR/DEBIAN/postinst"
 #!/bin/bash
 update-desktop-database /usr/share/applications >/dev/null 2>&1
 udevadm control --reload-rules || true
 udevadm trigger --subsystem-match=usb || true
 
+# Secure Permission Layer: Isolate write access to configuration targets only
+mkdir -p /opt/Evolv/EScribe/Settings
+chmod 777 /opt/Evolv/EScribe/Settings
+
+# Touch and open permissions for the master runtime configuration files
+touch /opt/Evolv/EScribe/EScribeSettings.xml
+chmod 666 /opt/Evolv/EScribe/*.xml
+
 echo "#################################################"
-echo "#  EScribe V${PKG_VER} deployed successfully.      #"
+echo "#  EScribe deployed successfully.               #"
 echo "#  Native Linux runtime environment ready!       #"
 echo "#################################################"
 EOF
@@ -246,3 +254,5 @@ dpkg-deb --build "$BUILD_DIR" "${BASE_DIR}/${DEB_FILENAME}"
 rm -rf "$BUILD_DIR"
 echo "✅ Compilation sequence complete! Find your custom build package target at:"
 echo "👉 ${BASE_DIR}/${DEB_FILENAME}"
+
+
