@@ -37,9 +37,17 @@ To remove or completely purge the application along with all custom hardware com
 *** DISCLAIMER ***
 This is an unofficial packaging helper script. Use it at your own risk. This script does NOT alter or patch any executable binaries, nor does it modify Evolv's firmware files. It simply automates the extraction of official, untouched firmware packs from the Windows .exe and places them into the standard Linux directory path. The flash process is handled entirely by the native, secure Evolv bootloader via USB.
 
+
+*** Source package's ***
+Linux:    https://forum.evolvapor.com/topic/69197-linux-escribe-suite-beta-thread
+Windows:  https://www.evolvapor.com/escribe then chose your windows version
+
 ---
 
 ### Change Log:
+- V0.0 (2026-05-20):
+    * Initial Prototype.
+
 - V0.1 (2026-05-24):
     * Initial Public Release.
     * Added automated 7z Windows firmware parsing layer.
