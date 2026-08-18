@@ -18,7 +18,9 @@ escribe-suite_[LinuxVersion]SW+[WindowsVersion]FW_amd64.deb
 It is a great way to keep your Linux installation updated with the latest device profiles and microcode updates without waiting for a new native Linux release.
 
 How to use it:
-1. Download and drop both the official Evolv Linux .run file and the latest Windows .exe installer into the SRC directory.
+1. Download and drop both the official Evolv Linux .run file and the latest Windows .exe installer into the SRC directory from:
+    https://downloads.evolvapor.com/SetupEScribe2_SP77_INT.exe
+    https://forum.evolvapor.com/topic/69197-linux-escribe-suite-beta-thread/
 2. Run the deb_franck_build.sh to create the deb package.
 
 It will automatically check your system dependencies, extract both targets, merge the assets, swap the firmwares, generate your hardware udev rules, and output a clean .deb package ready for apt-get install.
